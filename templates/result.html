@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Hasil Evaluasi</h2>
+    <p class="lead">Berikut adalah hasil analisa anda.</p>
+
+    <div class="card-vertical">
+
+        <!-- Data Identitas -->
+        <h3>Data Identitas</h3>
+        <p><b>Nama:</b> {{ nama }}</p>
+        <p><b>Usia:</b> {{ usia }}</p>
+        <p><b>Jenis Kelamin:</b> {{ jk }}</p>
+
+        <hr>
+
+        <!-- Hasil Analisis -->
+        <h3>Hasil Analisis Kesehatan Mental</h3>
+        <p><b>Kecemasan (Anxiety):</b> {{ anxiety }} ({{ a_res }})</p>
+        <p><b>Depresi (Depression):</b> {{ depression }} ({{ d_res }})</p>
+        <p><b>Stres (Stress):</b> {{ stress }} ({{ s_res }})</p>
+
+        <hr>
+
+        <h3>Kesimpulan: {{ conclusion }}</h3>
+
+        <div class="actions" style="margin-top: 20px;">
+            <a href="/" class="btn btn-primary">Tes Lagi</a>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>
