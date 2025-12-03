@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tes Kesehatan Mental Fuzzy</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Tes Kesehatan Mental (Fuzzy Expert System)</h2>
+    <p class="lead">Jawab pernyataan berikut sesuai kondisimu dalam 2 minggu terakhir.</p>
+
+    <form action="/submit" method="POST">
+
+        <h3>Data Identitas</h3>
+
+        <div class="question">
+            <div class="q-text">Nama Lengkap</div>
+            <div class="select-wrap">
+                <input type="text" name="nama" required style="padding:10px; width:100%; border-radius:10px;">
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="q-text">Usia</div>
+            <div class="select-wrap">
+                <input type="number" name="usia" required min="1" max="120" style="padding:10px; width:100%; border-radius:10px;">
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="q-text">Jenis Kelamin</div>
+            <div class="select-wrap">
+                <select name="jk" required>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+        </div>
+
+        <hr style="margin:18px 0;">
+
+        {% for q in questions %}
+        <div class="question">
+            <div class="q-index">{{ loop.index }}</div>
+            <div class="q-text">{{ q.question_text }}</div>
+
+            <div class="select-wrap">
+                <select name="q{{ q.id }}">
+                    <option value="1">1 — Sangat Tidak Setuju</option>
+                    <option value="2">2 — Tidak Setuju</option>
+                    <option value="3">3 — Netral</option>
+                    <option value="4">4 — Setuju</option>
+                    <option value="5">5 — Sangat Setuju</option>
+                </select>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="actions">
+            <button class="btn btn-primary" type="submit">Lihat Hasil</button>
+            <button class="btn btn-ghost" type="reset">Reset</button>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>
